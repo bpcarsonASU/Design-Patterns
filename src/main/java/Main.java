@@ -1,5 +1,9 @@
 package main.java;
 
+import design1.java.Apiary;
+import design1.java.Hive;
+import design1.java.Room;
+import design1.java.SpawnRoom;
 import design2.java.Bee;
 import design2.java.Beehive;
 import design3.java.BeeD3;
@@ -8,11 +12,6 @@ import design3.java.RestRoom;
 import design3.java.RoomD3;
 
 import java.util.Scanner;
-
-import design1.java.Apiary;
-import design1.java.Hive;
-import design1.java.Room;
-import design1.java.SpawnRoom;
 
 /**
  * Tests all design patterns and proves their functionality towards at least one
@@ -416,6 +415,9 @@ public class Main {
     scan.close();
   }
 
+  /**
+   * Construction of rooms in hive.
+   */
   public static void constructRoom(HiveD3 hive) {
     if (hive.getType().equals("Worker")) {
       System.out.println("\nAn additional room was constructed in only 1 tick!");
@@ -426,6 +428,9 @@ public class Main {
     }
   }
 
+  /**
+   * Harvesting nectar for supporting the hive.
+   */
   public static void harvestNectar(HiveD3 hive) {
     if (hive.getType().equals("Collector")) {
       System.out.println("\nSufficient nectar has been harvested in only 1 tick!");
@@ -436,6 +441,9 @@ public class Main {
     }
   }
 
+  /**
+   * Battling other hives for territory.
+   */
   public static void battleTime(HiveD3 hive) {
     if (hive.getType().equals("Killer")) {
       System.out.println("\nThe battle has been settled in only 1 tick!");
