@@ -4,10 +4,13 @@ import static org.junit.Assert.assertTrue;
 
 import design1.java.Room;
 import design1.java.SpawnRoom;
+import design3.java.BeeD3;
+import design3.java.RestRoom;
+import design3.java.RoomD3;
 
 import org.junit.Test;
 
-public class RoomTest {
+public class RoomD3Test {
 
     /**
     * defaultConstructor checks that when the Room object is initialized
@@ -15,7 +18,7 @@ public class RoomTest {
     */
     @Test
     public void defaultConstructor() {
-        Room room = new Room();
+        RoomD3 room = new RoomD3();
         
         assertTrue(room.getId() == 0);
         assertTrue(room.getNumBees() == 0);
@@ -27,10 +30,9 @@ public class RoomTest {
     */
     @Test
     public void paramConstructor() {
-        Room room = new Room(15, 50);
+        RoomD3 room = new RoomD3(15);
         
         assertTrue(room.getId() == 15);
-        assertTrue(room.getNumBees() == 50);
     }
     
     /**
@@ -38,22 +40,37 @@ public class RoomTest {
     */   
     @Test
     public void mutator() {
-        Room room = new Room(15, 50);
+        RoomD3 room = new RoomD3(15);
         room.setId(5);
         
         assertTrue(room.getId() == 5);
-        assertTrue(room.getNumBees() == 50);
     }
     
     /**
-    * spawnTest ensures that the SpawnRoom extension of Room can correctly spawn
-    * more bees.
+    * modifyColl tests that modifications to the collection function.
     */   
     @Test
-    public void spawnTest() {
-        SpawnRoom room = new SpawnRoom(50, 15);
-        room.spawn(5);
+    public void modifyColl() {
+        RoomD3 room = new RoomD3(15);
+        BeeD3 bee = new BeeD3("Worker");
+        room.addBee(bee);
         
-        assertTrue(room.getNumBees() == 55);
+        assertTrue(room.getNumBees() == 1);
+        
+        room.removeBee(bee);
+        
+        assertTrue(room.getNumBees() == 0);
+    }
+    
+    /**
+    * restTest tests the functionality of the RestRoom.
+    */   
+    @Test
+    public void restTest() {
+        RestRoom room = new RestRoom(2);
+        
+        assertTrue(room.getFood() == 10);
+        room.setFood(5);
+        assertTrue(room.getFood() == 5);
     }
 }
