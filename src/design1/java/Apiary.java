@@ -6,6 +6,7 @@ import java.util.Vector;
 /**
  * Acts as an Apiary (collection of bee hives) by containing a network of
  * hives and rooms.
+ * This is a change.
  */
 
 public class Apiary {
